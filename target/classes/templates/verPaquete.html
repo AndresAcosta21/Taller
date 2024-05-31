@@ -1,0 +1,53 @@
+	<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>Paquetes Registrados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="container p-4">
+        <div class="text-center">
+            <h2 class="section__title text-white font-weight-bold">Paquetes Registrados</h2>
+        </div>
+        <br><br>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>descripcion</th>
+                    <th>destino</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="paquete: ${listaPaquete}">
+                    <td th:text="${paquete.id}"></td>
+                    <td th:text="${paquete.descripcion}"></td>
+                    <td th:text="${paquete.destino}"></td>
+                    <td>
+                        <a class="btn btn-info btn-sm" th:href="@{'/paquete/editar/'+ ${paquete.id}}" th:text="'Editar'"></a>
+                        &nbsp; &nbsp;
+                        <a class="btn btn-danger btn-sm" th:href="@{'/paquete/eliminar/'+ ${paquete.id}}" th:text="'Eliminar'"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            <div class="p-3">
+                <br><a th:href="@{/Verpaquete/formPaquete}" class="btn btn-outline-primary">Insertar Paquete</a>
+            </div>
+            <div class="p-3">
+                <br><a th:href="@{/}" class="btn btn-outline-success">Inicio</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
